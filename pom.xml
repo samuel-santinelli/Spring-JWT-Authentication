@@ -1,59 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>samuel-santinelli</groupId>
-	<artifactId>spring-jwt-authentication</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-jwt-authentication</name>
-	<description>This project is a comprehensive example of how to implement JWT (JSON Web Token) authentication and authorization using Spring Boot. It covers various aspects of security, such as user registration, login, and securing API endpoints with JWT. The project is structured to demonstrate the best practices in securing a Spring Boot application, including:                   - **User Authentication**: Users can register and log in to the application. Passwords are securely stored using BCrypt hashing.          - **JWT Generation and Validation**: Upon successful authentication, a JWT is generated and returned to the client. This token is used to            authenticate subsequent requests.         - **Securing Endpoints**: Certain endpoints are secured and require a valid JWT token to access. Unauthorized requests are properly handled.          - **Integration with PostgreSQL**: User data is stored in a PostgreSQL database, demonstrating how to integrate Spring Data JPA with a            relational database.          - **Exception Handling**: The project includes global exception handling to provide meaningful error messages to the client. This project aims to serve as a solid starting point for developers looking to secure their Spring Boot applications with JWT and implement robust authentication and authorization mechanisms.</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- Verifique a versão mais recente no repositório Maven do Spring Boot -->
+        <version>2.7.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
+    <groupId>samuel-santinelli</groupId>
+    <artifactId>spring-jwt-authentication</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-jwt-authentication</name>
+    <description>
+        This project is a comprehensive example of how to implement JWT (JSON Web Token) authentication and authorization using Spring Boot.
+        It covers various aspects of security, such as user registration, login, and securing API endpoints with JWT. The project is structured
+        to demonstrate the best practices in securing a Spring Boot application, including:
+        - **User Authentication**: Users can register and log in to the application. Passwords are securely stored using BCrypt hashing.
+        - **JWT Generation and Validation**: Upon successful authentication, a JWT is generated and returned to the client. This token is used to
+        authenticate subsequent requests.
+        - **Securing Endpoints**: Certain endpoints are secured and require a valid JWT token to access. Unauthorized requests are properly handled.
+        - **Integration with PostgreSQL**: User data is stored in a PostgreSQL database, demonstrating how to integrate Spring Data JPA with a
+        relational database.
+        - **Exception Handling**: The project includes global exception handling to provide meaningful error messages to the client. This project
+        aims to serve as a solid starting point for developers looking to secure their Spring Boot applications with JWT and implement robust
+        authentication and authorization mechanisms.
+    </description>
+    
+    <!-- Defina a URL e a licença do seu projeto aqui -->
+    <url>https://example.com</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <name>Seu Nome</name>
+            <email>seu@email.com</email>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:https://github.com/seunome/spring-jwt-authentication.git</connection>
+        <developerConnection>scm:git:https://github.com/seunome/spring-jwt-authentication.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/seunome/spring-jwt-authentication</url>
+    </scm>
+    
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    
+    <dependencies>
+        <!-- Starter para aplicação Spring Boot com suporte para desenvolvimento web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version> <!-- ou a versão mais recente disponível -->
+        </dependency>
+        
 
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
+        <!-- Starter para integração do Spring Data JPA com banco de dados relacional -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <!-- Starter para segurança, incluindo autenticação e autorização -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        
+        <!-- Driver JDBC para PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <!-- Verifique a versão mais recente no repositório Maven -->
+            <version>42.3.3</version>
+        </dependency>
+        
+        <!-- Starter para testes unitários e de integração -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- Plugin do Spring Boot para empacotar a aplicação -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    
 </project>
